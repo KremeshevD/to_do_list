@@ -1,0 +1,34 @@
+.item_container  {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid gray;
+    padding: 15px 10px;
+    margin-bottom: 15px;
+    font-size: 2em;
+    border-radius: 10px;
+    transition: background-color 1s;
+}
+
+
+
+
+.completed {
+    transition: background-color 1s;
+    background-color: green;
+}
+
+
+.slow_appearance {
+    opacity: 0%;
+
+    animation-name: appea;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+
+    
+}
+
+
+@keyframes appea {
+    100% { opacity: 100%; }
+   }

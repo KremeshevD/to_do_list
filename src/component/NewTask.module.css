@@ -1,0 +1,27 @@
+.input_field input{
+  border-radius: 5px;
+  padding: 5px;
+  border: 1px solid gray;
+  width: 400px;
+  margin-right: 20px;
+}
+.input_field button {
+    color: white;
+    padding: 5px;
+    background-color: rgb(50, 172, 45);
+    transition: background-color 0.5s;
+    border-radius: 5px;
+    outline: none;
+    
+}
+
+.input_field button:hover {
+    padding: 5px;
+    transition: background-color 0.5s;
+    background-color:  rgb(35, 146, 31);
+    border-radius: 5px;
+}
+.input_field button {
+
+    outline: 5px rgba(35, 146, 31, 0.527);
+}
