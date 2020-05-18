@@ -1,3 +1,8 @@
+@keyframes appea {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+   }
+
 .item_container  {
     display: flex;
     justify-content: space-between;
@@ -19,16 +24,9 @@
 
 
 .slow_appearance {
-    opacity: 0%;
-
     animation-name: appea;
     animation-duration: 2s;
     animation-fill-mode: forwards;
-
-    
 }
 
 
-@keyframes appea {
-    100% { opacity: 100%; }
-   }
