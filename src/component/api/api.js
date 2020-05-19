@@ -5,6 +5,7 @@ const api = {
     getTask: () => {
         return fetch('https://jsonplaceholder.typicode.com/todos')
         .then( response => response.json())
+        .catch( e => new Error('error'))
     }
 }
 

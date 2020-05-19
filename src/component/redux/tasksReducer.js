@@ -1,10 +1,11 @@
-import { SET_TASKS, TASK_COMPLETED, ADD_NEW_TASK, CHANGE_NEW_TASK_TEXT } from "./action";
+import { SET_TASKS, TASK_COMPLETED, ADD_NEW_TASK, CHANGE_NEW_TASK_TEXT, ERROR_IN_NEW_TASK_INPUT } from "./action";
 
 
 
 const initialState = {
     tasks: [],
-    newTaskText: ''
+    newTaskText: '',
+    formError: false
 };
 
 const appReducer = (state = initialState, action) => {
@@ -27,6 +28,8 @@ const appReducer = (state = initialState, action) => {
             }
         case CHANGE_NEW_TASK_TEXT: 
                 return {...state, newTaskText: action.payload}
+        case ERROR_IN_NEW_TASK_INPUT:
+                return {...state, formError: action.payload}
         default: return state
     }
         
@@ -48,6 +51,10 @@ export const changeNewTextTask = (payload) => ({
     type: CHANGE_NEW_TASK_TEXT,
     payload
 })
+export const errorInNewTaskInput = (payload) => ({
+    type: ERROR_IN_NEW_TASK_INPUT,
+    payload
+})
 
 
 
@@ -57,7 +64,18 @@ export const toggleComplete = (e)=> {
     }
 };
 
-export const addTask = () => (dispatch) => dispatch(addNewTask());
+export const addTask = (payload) => (dispatch) => {
+    let timeOut;
+    if (payload.trim() === "") {
+        clearTimeout(timeOut);
+        dispatch(errorInNewTaskInput(true));
+        timeOut = setTimeout(()=> dispatch(errorInNewTaskInput(false)), 5000 )
+    } else {
+        clearTimeout(timeOut);
+        dispatch(addNewTask());
+        dispatch(errorInNewTaskInput(false));
+    }
+}
 
 export const changeNewTask = (payload) => {
     return (dispatch) => {

@@ -1,3 +1,6 @@
+p span{
+  font-size: 1.2rem;
+}
 button {
   padding: 0;
   border: none;
@@ -9,7 +12,7 @@ button {
   transition: background-color 0.5s;
   border-radius: 5px;
   outline: none;
-  
+  font-size: 1.2rem;  
 }
 button:active, button:focus {
   outline: none;
@@ -23,4 +26,10 @@ button:hover {
   transition: background-color 0.5s;
   background-color:  rgb(35, 146, 31);
   border-radius: 5px;
+}
+
+.center_block {
+  display: flex;
+  justify-content: center;
+  
 }

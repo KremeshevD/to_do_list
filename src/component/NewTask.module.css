@@ -1,3 +1,7 @@
+.container {
+    margin-bottom: 2rem;
+}
+
 .input_field input{
   border-radius: 5px;
   padding: 5px;
@@ -25,3 +29,10 @@
 
     outline: 5px rgba(35, 146, 31, 0.527);
 }
+
+.input_field .error {
+    transition: box-shadow 0.5s ;
+    box-shadow: 0 0 3pt 2pt red;
+}
+
+

@@ -6,11 +6,21 @@ import Items from './Items'
 import Preloader from '../Preloader';
 
 const TaskList = (props)=> {
+
+    useEffect(()=>{
+        props.getTask()
+    },[]);
+
     return (
         <div>
             
-            <button onClick={props.getTask}>Load</button>
-            {props.isFetching?
+            {!props.isFetching && props.loadingError ? 
+            <div className="center_block">
+            <div><p>Something wrong...</p></div>
+            <button onClick={props.getTask}>Try again</button>
+            </div> 
+            :            
+            props.isFetching && !props.loadingError ?
             <Preloader />
             :
             props.tasks.length == 0 ?
@@ -26,6 +36,7 @@ const TaskList = (props)=> {
 
 const mapStateToProps = (state) => ({
     isFetching: state.app.isFetching,
+    loadingError: state.app.loadingError,
     tasks: state.tasks.tasks
 })
 
